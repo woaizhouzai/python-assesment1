@@ -19,7 +19,7 @@ class Agent():
             self.y = y
         self.environment = environment
         self.agents = agents
-        self.store = 0 # We'll come to this in a second.
+        self.store = 0 # To judge whether share or not
     
     def move(self):
         if random.random() < 0.5:
@@ -31,11 +31,13 @@ class Agent():
             self.y = (self.y + 1) % 100
         else:
             self.y = (self.y - 1) % 100
-    def eat(self): # can you make it eat what is left?
+    def eat(self): 
         if self.environment[self.y][self.x] > 10:
             self.environment[self.y][self.x] -= 10
             self.store += 10
-            
+
+
+# When sheeps come close, they should share their food!            
     def distance_between(self, agent):
         return (((self.x - agent.x)**2) +
                 ((self.y - agent.y)**2))**0.5

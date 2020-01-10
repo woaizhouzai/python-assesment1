@@ -35,6 +35,8 @@ agents = []
 environment = data.environment
 
 # Make the agents.
+
+
 #for i in range(num_of_agents):
 #    agents.append(agentframework.Agent(environment, agents))
 
@@ -43,7 +45,7 @@ for i in range(num_of_agents):
     x = int(td_xs[i].text)
     agents.append(agentframework.Agent(environment, agents, y, x))
     
-
+# Create the figure
 fig = matplotlib.pyplot.figure()
 
 root = tkinter.Tk()
@@ -51,6 +53,9 @@ root.wm_title("Model")
 canvas = matplotlib.backends.backend_tkagg.FigureCanvasTkAgg(fig, master=root)
 canvas._tkcanvas.pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=1)
 
+
+
+# Every time it runs, update the window
 def update(frame_number):
     fig.clear()
     # Move the agents.
@@ -67,12 +72,15 @@ def update(frame_number):
     for i in range(num_of_agents):
         matplotlib.pyplot.scatter(agents[i].x,agents[i].y)
         
+        
+# Run this model
 def run():
     
     animation = matplotlib.animation.FuncAnimation(fig, update, frames=num_of_iterations, repeat=False)
     canvas.draw()
 
 
+# Create the model,and the GUI
 menu = tkinter.Menu(root)
 root.config(menu=menu)
 model_menu = tkinter.Menu(menu)
@@ -80,11 +88,11 @@ menu.add_cascade(label="Model", menu=model_menu)
 model_menu.add_command(label="Run model", command=run)
 
 tkinter.mainloop()
+
+
+# Another method
 #animation = matplotlib.animation.FuncAnimation(fig, update, frames=num_of_iterations, repeat=False)
 #matplotlib.pyplot.show()
-
-
-
     
 #    matplotlib.pyplot.clf()
 #    matplotlib.pyplot.xlim(0, 99)

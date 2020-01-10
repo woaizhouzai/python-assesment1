@@ -4,6 +4,8 @@ Created on Fri Dec 20 11:13:00 2019
 
 @author: ZHOU_YuZHAO
 """
+
+# Read txt and write it into csv
 import csv
 import matplotlib.pyplot
 data_line=[]
@@ -13,12 +15,17 @@ for each_line in f:
 
 f.close()
     
-    
+ 
+
+
+# Get values   
 w = open('data.csv' , 'w')
 for new_line in  data_line:
     w.write(new_line)
 w.close()
 
+
+# Create environment list to cantain all the data
 environment = []
 with open('data.csv', newline='') as f:
     f = csv.reader(f)
