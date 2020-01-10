@@ -23,3 +23,5 @@ After testing, the program can run normally.
 The possible direction of development: refine the animation, and control the lamb's moving track through the user's keyboard or mouse, in the form of a game of many people greedy snake.
 
 Most of the codes were from minerva, and no other origin.
+
+Template of license: MIT License
